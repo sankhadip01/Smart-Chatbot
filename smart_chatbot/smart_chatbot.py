@@ -1,11 +1,9 @@
 import speech_recognition as sr
 import pyttsx3
 
-# Initialize recognizer & TTS engine
 recognizer = sr.Recognizer()
 tts_engine = pyttsx3.init()
 
-# Basic response logic (replace with GPT API if you want)
 def get_response(user_input):
     user_input = user_input.lower()
     if "hello" in user_input:
@@ -17,13 +15,11 @@ def get_response(user_input):
     else:
         return "I'm sorry, I didn't understand that. Can you please repeat?"
 
-# Speak the text response
 def speak(text):
     print(f"Bot: {text}")
     tts_engine.say(text)
     tts_engine.runAndWait()
 
-# Text input mode
 def text_mode():
     while True:
         user_input = input("You: ")
@@ -32,7 +28,6 @@ def text_mode():
         if "bye" in user_input.lower():
             break
 
-# Voice input mode
 def voice_mode():
     while True:
         with sr.Microphone() as source:
@@ -51,7 +46,7 @@ def voice_mode():
             except sr.RequestError:
                 speak("Sorry, speech service is unavailable.")
 
-# Main function to choose mode
+
 def main():
     speak("Hi! Would you like to chat using text or voice?")
     mode = input("Choose mode (text/voice): ").lower()
@@ -64,3 +59,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+#I imported two important Python libraries:
+#speech_recognition for listening to voice
+#pyttsx3 for making the bot speak
+#I created a recognizer object to hear and understand what we say.
+#I also created a text-to-speech engine so the bot can reply by speaking
+#I made a simple function get_response().
+
+#It checks the user’s input:
+	#If you say ‘hello’, it replies Hello!
+		#If you say ‘bye’, it says ‘Goodbye!’ and stops.
+	#For anything else, it says it didn’t understand.
+    
+    # in the main() function:
+#The bot asks you if you want to use text or voice.
+#Depending on your choice, it runs text_mode() or voice_mode().”
+
+
